@@ -10,9 +10,9 @@ This repository contains an automation workflow to build a base Ubuntu image wit
 - The GNU `make` utility
 - Ensure that you have created a service principal
 
-    ```bash
-        $ az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
-    ```
+  ```bash
+      $ az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+  ```
 - This repo is configured to be ran from a linux or mac; however, tested under WSL2 with the appropriate utilities installed.
 
 ### Procedure
@@ -28,9 +28,9 @@ This repository contains an automation workflow to build a base Ubuntu image wit
 
 1. To build the image, run:
 
-    ```bash
-        $ make build
-    ```
+  ```bash
+      $ make build
+  ```
 
 This will validate the builder json file, and run the build, creating the resource group `default: packer-rg` and the base image.
 
