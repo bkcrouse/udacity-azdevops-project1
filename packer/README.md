@@ -17,7 +17,14 @@ This repository contains an automation workflow to build a base Ubuntu image wit
 
 ### Procedure
 
-1. Configure you environment with the appropriate environment variables prior to running `make`.
+1. Configure you environment with the appropriate environment variables prior to running `make`. The minumun required variables are shown as follows:
+
+  ```bash
+    $ export AZ_RESOURCE_GROUP=packer-rg
+    $ export AZ_SUBSCRIPTION_ID='your-subscription-id'
+    $ export AZ_CLIENT_SECRET='your-client-secret'
+    $ export AZ_CLIENT_ID='your-client-id'
+  ```
 
 1. To build the image, run:
 
