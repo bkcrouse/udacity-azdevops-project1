@@ -2,7 +2,7 @@
 
 This repository contains an automation workflow to build a base Ubuntu image within an Azure account.
 
-## Requirements
+### Requirements
 
 - An Azure account
 - Packer 1.7.8
@@ -13,8 +13,9 @@ This repository contains an automation workflow to build a base Ubuntu image wit
     ```bash
         az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
     ```
+- This repo is configured to be ran from a linux or mac; however, tested under WSL2 with the appropriate utilities installed.
 
-## Procedure
+### Procedure
 
 1. Configure you environment with the appropriate environment variables prior to running `make`.
 
