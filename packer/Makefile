@@ -4,6 +4,7 @@
 SHELL := /bin/bash
 SSH_INTERFACE ?= public_dns
 SECURITY_GROUP_CIDR := $(shell curl -sSL 'https://api.ipify.org')/32
+PACKER_LOG ?= 1
 PACKER_LOG_PATH ?= packer.log
 AZ_RESOURCE_GROUP ?= packer-rg
 AZ_SUBSCRIPTION_ID ?= 
