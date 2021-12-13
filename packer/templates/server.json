@@ -1,0 +1,37 @@
+{
+    "builders":[{
+        "type": "azure-arm",
+        "client_id": "{{user `client_id`}}",
+        "client_secret": "{{user `client_secret`}}",
+        "subscription_id": "{{user `subscription_id`}}",
+        "os_type": "Linux",
+        "image_publisher" : "{{user `builder_image_publisher`}}",
+        "image_offer": "{{user `builder_image_offer`}}",
+        "image_sku": "{{user `builder_image_sku`}}",
+        "managed_image_resource_group_name": "{{user `resource_group`}}",
+        "managed_image_name": "{{user `builder_image_name`}}-{{timestamp}}",
+        "location": "East US",
+        "vm_size": "Standard_B1s",
+        "azure_tags": {
+            "environment": "udacity"
+        }
+    }],
+    "provisioners": [{
+        "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
+        "script": "scripts/init.sh",
+        "type": "shell"
+    }],
+    "variables": {
+        "subscription_id": "{{env `AZ_SUBSCRIPTION_ID`}}",
+        "client_id": "{{env `AZ_CLIENT_ID`}}",
+        "client_secret": "{{env `AZ_CLIENT_SECRET`}}",
+        "resource_group": "{{ env `AZ_RESOURCE_GROUP`}}",
+        "tenant_id": "{{ env `AZ_TENANT_ID`}}",
+        "location": "{{env `AZ_LOCATION`}}",
+        "builder_image_name": "{{env `BUILDER_IMAGE_ID`}}",
+        "builder_image_offer": "{{env `BUILDER_IMAGE_OFFER`}}",
+        "builder_image_publisher": "{{env `BUILDER_IMAGE_PUBLISHER`}}",
+        "builder_image_sku": "{{env `BUILDER_IMAGE_SKU`}}"
+
+    }
+}
